@@ -4,10 +4,10 @@ import qs from "qs";
 import { Navigate, useNavigate } from "react-router-dom";
 
 export const api = axios.create({
-  baseURL: "/api",
+  baseURL: "",
   headers: {
     "access-control-allow-origin": "*",
-  }
+  },
 });
 
 export async function signIn(username: any, password: any) {
@@ -19,7 +19,6 @@ export async function signIn(username: any, password: any) {
 
       {
         headers: {
-          
           "Content-Type": "application/x-www-form-urlencoded",
         },
         auth: {
