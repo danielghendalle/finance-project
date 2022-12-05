@@ -4,7 +4,7 @@ import qs from "qs";
 import { Navigate, useNavigate } from "react-router-dom";
 
 export const api = axios.create({
-  baseURL: "",
+  baseURL: "/api",
   headers: {
     "access-control-allow-origin": "*",
   },
