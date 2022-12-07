@@ -1,7 +1,6 @@
 import axios from "axios";
 import { destroyCookie, parseCookies, setCookie } from "nookies";
 import qs from "qs";
-import { Navigate, useNavigate } from "react-router-dom";
 
 export const api = axios.create({
   baseURL: "/api",

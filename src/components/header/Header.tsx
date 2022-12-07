@@ -1,24 +1,23 @@
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import MenuIcon from "@mui/icons-material/Menu";
+import PersonOutlinedIcon from "@mui/icons-material/PersonOutline";
 import {
   Box,
   Button,
   Drawer,
   IconButton,
   Link,
-  Typography,
+  Typography
 } from "@mui/material";
-//@ts-ignore
-import styles from "./styles.module.scss";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutline";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import { grey } from "@mui/material/colors";
 import { Stack } from "@mui/system";
-import { useState } from "react";
-import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import { useNavigate } from "react-router-dom";
-import { CustomButton } from "./../CustomButton";
 import { destroyCookie } from "nookies";
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+//@ts-ignore
+import styles from "./styles.module.scss";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -51,6 +50,11 @@ const Header = () => {
         anchor="left"
         open={isDrawerOpen}
         onClose={() => setIsDrawerOpen(false)}
+        PaperProps={{
+          sx:{
+            background:"rgba(13, 13, 13, 1)"
+          }
+        }}
       >
         <Box className={styles.header}>
           <IconButton
@@ -111,8 +115,7 @@ const Header = () => {
       <Typography
         variant="h4"
         className={styles.logo}
-        sx={{ fontWeight: "bold",
-              fontFamily: "Roboto, sans-serif" }}
+        sx={{ fontWeight: "bold", fontFamily: "Roboto, sans-serif" }}
       >
         Finances
       </Typography>

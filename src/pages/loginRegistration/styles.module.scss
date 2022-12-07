@@ -81,7 +81,7 @@ $gutter: 32px;
 }
 
 .container {
-    background-image: url("../../img/purpleDream.png");
+    background-image: url("../../img/neonAbstract.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
@@ -106,7 +106,7 @@ $gutter: 32px;
 }
 
 .form {
-    background-color: #2F3135;
+    background-color: #121212;
     width: 50vw;
     height: 100vh;
     display: flex;
@@ -128,7 +128,7 @@ $gutter: 32px;
         flex: 1;
     }
 
-    .returnButton{
+    .returnButton {
         display: flex;
         border: 1px solid gray;
     }
@@ -176,4 +176,3 @@ $gutter: 32px;
     }
 
 }
-

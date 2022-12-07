@@ -1,27 +1,26 @@
-//@ts-ignore
-import styles from "./styles.module.scss";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import CalculateIcon from "@mui/icons-material/Calculate";
+import DeleteIcon from "@mui/icons-material/Delete";
+import PaidIcon from "@mui/icons-material/Paid";
 import {
   Box,
   FormControlLabel,
   IconButton,
   InputAdornment,
-  Stack,
+  Stack
 } from "@mui/material";
-import Header from "../../components/header/Header";
-import Footer from "../../components/footer/Footer";
-import Card from "../../components/card/Card";
-import PaidIcon from "@mui/icons-material/Paid";
-import CalculateIcon from "@mui/icons-material/Calculate";
-import { CustomInput } from "../../components/CustomInput";
-import { CustomButton } from "../../components/CustomButton";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { parseCookies } from "nookies";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import Card from "../../components/card/Card";
+import { CustomButton } from "../../components/CustomButton";
+import { CustomInput } from "../../components/CustomInput";
+import Header from "../../components/header/Header";
 import { api, valueRegister } from "../../services/api";
-import { parseCookies } from "nookies";
 import CustomSwitch from "./../../components/CustomSwitch";
-import { DataGrid, GridColDef, GridValueGetterParams } from "@mui/x-data-grid";
-import DeleteIcon from "@mui/icons-material/Delete";
+//@ts-ignore
+import styles from "./styles.module.scss";
 
 const Dashboard = () => {
   const [loading, setLoading] = useState(false);
@@ -242,7 +241,6 @@ const Dashboard = () => {
           </Box>
         </Box>
       </Box>
-      <Footer />
     </Box>
   );
 };

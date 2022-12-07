@@ -1,16 +1,16 @@
+import LockOpenIcon from "@mui/icons-material/LockOpen";
 import { Box, Typography } from "@mui/material";
+import { grey } from "@mui/material/colors";
 import { Stack } from "@mui/system";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { CustomButton } from "../../components/CustomButton";
+import { CustomInput } from "../../components/CustomInput";
+import { CustomLink } from "../../components/CustomLink";
+import { signIn } from "../../services/api";
 //@ts-ignore
 import styles from "./styles.module.scss";
-import { CustomInput } from "../../components/CustomInput";
-import { CustomButton } from "../../components/CustomButton";
-import { grey } from "@mui/material/colors";
-import { CustomLink } from "../../components/CustomLink";
-import { useForm } from "react-hook-form";
-import LockOpenIcon from "@mui/icons-material/LockOpen";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { signIn } from "../../services/api";
 
 interface FormValues {
   email: string;
@@ -103,9 +103,6 @@ const Login = () => {
               onClick={redirectToLoginRegistration}
             >
               Inscreva-se
-            </CustomLink>
-            <CustomLink className={styles.link} color={grey[100]}>
-              Mudar a senha ?
             </CustomLink>
           </Stack>
         </Box>

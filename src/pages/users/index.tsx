@@ -1,23 +1,27 @@
+import DeleteIcon from "@mui/icons-material/Delete";
+import PersonAddOutlinedIcon from "@mui/icons-material/PersonAddOutlined";
+import { Box, IconButton, Typography } from "@mui/material";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import jwt_decode from "jwt-decode";
+import { parseCookies } from "nookies";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Header from "../../components/header/Header";
+import { api } from "../../services/api";
+import { CustomButton } from "./../../components/CustomButton";
 //@ts-ignore
 import styles from "./styles.module.scss";
-import { Box, IconButton } from "@mui/material";
-import Footer from "../../components/footer/Footer";
-import Header from "../../components/header/Header";
-import { parseCookies } from "nookies";
-import { api } from "../../services/api";
-import { useState } from "react";
-import { useEffect } from "react";
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import { CustomButton } from "./../../components/CustomButton";
-import PersonAddOutlinedIcon from "@mui/icons-material/PersonAddOutlined";
-import { useNavigate } from "react-router-dom";
-import { Typography } from '@mui/material';
-import DeleteIcon from "@mui/icons-material/Delete";
-
 
 const User = () => {
   const [users, setUsers] = useState<[any]>();
+  const [userRule, setUserRule] = useState();
+  const cookie = parseCookies(undefined, "authorization_token");
+  const decoded: any = jwt_decode(cookie.authorization_token);
+
+  console.log(decoded.authorities.toString());
+
   const navigate = useNavigate();
+
   async function getUsers() {
     const cookie = parseCookies(undefined, "authorization_token");
     const response = await api.get("users", {
@@ -28,14 +32,17 @@ const User = () => {
 
     const allUsers = response.data;
 
+    const allUserRules = allUsers.map((userRole) => userRole.rules);
+
     setUsers(allUsers);
+
+    setUserRule(allUserRules);
   }
 
   useEffect(() => {
     getUsers();
   }, []);
 
-  
   function reloadPage() {
     window.location.reload();
   }
@@ -53,10 +60,10 @@ const User = () => {
     }, 100);
   }
 
-
-  const columns: GridColDef[] = [
+  const adminColumns: GridColDef[] = [
     { field: "id", headerName: "Id", width: 90 },
     { field: "username", headerName: "Email", width: 300 },
+    { field: "rules", headerName: "Tipo de usuário", width: 300 },
     {
       field: "Excluir",
       renderCell: (cellValues) => {
@@ -73,28 +80,46 @@ const User = () => {
       width: 130,
     },
   ];
-
-  console.log(users);
+  const userColumns: GridColDef[] = [
+    { field: "id", headerName: "Id", width: 90 },
+    { field: "username", headerName: "Email", width: 300 },
+    { field: "rules", headerName: "Tipo de usuário", width: 300 },
+  ];
 
   return (
     <Box>
       <Header />
       <Box className={styles.container}>
         <Box className={styles.title}>
-          <Typography variant="h4" className={styles.typography} sx={{ fontWeight:"bold"}}>Usuários</Typography>
+          <Typography
+            variant="h4"
+            className={styles.typography}
+            sx={{ fontWeight: "bold" }}
+          >
+            Usuários
+          </Typography>
         </Box>
         <Box className={styles.table}>
-          <DataGrid
-            rows={users || []}
-            columns={columns}
-            pageSize={5}
-            rowsPerPageOptions={[5]}
-          />
+          {decoded.authorities.toString() === "COMMON_USER" ? (
+            <DataGrid
+              rows={users || []}
+              columns={userColumns}
+              pageSize={5}
+              rowsPerPageOptions={[5]}
+            />
+          ) : (
+            <DataGrid
+              rows={users || []}
+              columns={adminColumns}
+              pageSize={5}
+              rowsPerPageOptions={[5]}
+            />
+          )}
         </Box>
         <Box className={styles.newUser}>
           <Box>
             <CustomButton
-            onClick={() => navigate("/newUsers")}
+              onClick={() => navigate("/newUsers")}
               endIcon={
                 <PersonAddOutlinedIcon
                   sx={{
@@ -103,7 +128,6 @@ const User = () => {
                   }}
                 />
               }
-
               className={styles.button}
             >
               Novo Usuário
@@ -111,7 +135,6 @@ const User = () => {
           </Box>
         </Box>
       </Box>
-      <Footer />
     </Box>
   );
 };

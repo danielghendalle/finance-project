@@ -1,17 +1,15 @@
-//@ts-ignore
-import styles from "./styles.module.scss";
-import { Box } from "@mui/material";
-import Footer from "../../components/footer/Footer";
-import Header from "../../components/header/Header";
-import { CustomInput } from "../../components/CustomInput";
-import { CustomButton } from "../../components/CustomButton";
 import PersonAddOutlinedIcon from "@mui/icons-material/PersonAddOutlined";
-import WestIcon from '@mui/icons-material/West';
-import { Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import WestIcon from "@mui/icons-material/West";
+import { Box, Typography } from "@mui/material";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { CustomButton } from "../../components/CustomButton";
+import { CustomInput } from "../../components/CustomInput";
+import Header from "../../components/header/Header";
 import { userRegister } from "../../services/api";
+//@ts-ignore
+import styles from "./styles.module.scss";
 
 const NewUser = () => {
   const {
@@ -37,7 +35,11 @@ const NewUser = () => {
       <Header />
       <Box className={styles.container}>
         <Box className={styles.title}>
-          <Typography variant="h4" className={styles.typography} sx={{ fontWeight: "bold" }}>
+          <Typography
+            variant="h4"
+            className={styles.typography}
+            sx={{ fontWeight: "bold" }}
+          >
             Novo Usuário
           </Typography>
         </Box>
@@ -76,7 +78,6 @@ const NewUser = () => {
           </Box>
         </form>
       </Box>
-      <Footer />
     </Box>
   );
 };
