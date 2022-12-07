@@ -1,10 +1,8 @@
 import {
   createTheme,
   CssBaseline,
-  ThemeProvider,
-  useMediaQuery
+  ThemeProvider
 } from "@mui/material";
-import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/dashboard/index";
 import Login from "./pages/login";
@@ -16,20 +14,14 @@ import NewUser from "./pages/newUser";
 import User from "./pages/users/index";
 
 function App() {
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-
-  const theme = React.useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode: prefersDarkMode ? "dark" : "light",
-        },
-      }),
-    [prefersDarkMode]
-  );
+  const darkTheme = createTheme({
+    palette: {
+      mode: "dark",
+    },
+  });
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <div className={styles.App}>
         <BrowserRouter>
