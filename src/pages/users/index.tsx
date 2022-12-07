@@ -80,6 +80,7 @@ const User = () => {
       width: 130,
     },
   ];
+
   const userColumns: GridColDef[] = [
     { field: "id", headerName: "Id", width: 90 },
     { field: "username", headerName: "Email", width: 300 },
@@ -100,20 +101,22 @@ const User = () => {
           </Typography>
         </Box>
         <Box className={styles.table}>
-          {decoded.authorities.toString() === "COMMON_USER" ? (
+          {decoded.authorities.toString() === "COMMON_CLIENT" ? (
             <DataGrid
               rows={users || []}
               columns={userColumns}
               pageSize={5}
               rowsPerPageOptions={[5]}
             />
-          ) : (
+          ) : decoded.authorities.toString() === "ADMINISTRATOR" ? (
             <DataGrid
               rows={users || []}
               columns={adminColumns}
               pageSize={5}
               rowsPerPageOptions={[5]}
             />
+          ) : (
+            <></>
           )}
         </Box>
         <Box className={styles.newUser}>
