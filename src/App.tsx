@@ -1,8 +1,4 @@
-import {
-  createTheme,
-  CssBaseline,
-  ThemeProvider
-} from "@mui/material";
+import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/dashboard/index";
 import Login from "./pages/login";

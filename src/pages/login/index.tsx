@@ -2,7 +2,7 @@ import LockOpenIcon from "@mui/icons-material/LockOpen";
 import { Box, Typography } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import { Stack } from "@mui/system";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { CustomButton } from "../../components/CustomButton";
@@ -18,6 +18,13 @@ interface FormValues {
 }
 
 const Login = () => {
+
+  useEffect(() => {
+    document.title = 'Finances | Bem vindo !';
+  }, []);
+
+
+
   const {
     register,
     formState: { errors },

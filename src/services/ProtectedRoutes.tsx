@@ -1,6 +1,6 @@
 import { destroyCookie, parseCookies } from "nookies";
-import React, { useEffect, useState } from "react";
-import { Navigate, Outlet, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Navigate, Outlet } from "react-router-dom";
 import { api } from "./api";
 const useAuth = () => {
   const user = { loggedIn: false };
@@ -13,14 +13,16 @@ const ProtectedRoutes = () => {
 
   useEffect(() => {
     async function checkToken() {
-      try {
-        await api.get(`/oauth/check_token?token=${cookie.authorization_token}`);
-        setLoading(true);
-      } catch (err) {
-        setLoading(false);
-        destroyCookie(undefined, "authorization_token");
-        destroyCookie(undefined, "refresh_token");
-      }
+      await api
+        .get(`/oauth/check_token?token=${cookie.authorization_token}`)
+        .then((response) => {
+          return setLoading(true);
+        })
+        .catch((err) => {
+          setLoading(false);
+          destroyCookie(undefined, "authorization_token");
+          destroyCookie(undefined, "refresh_token");
+        });
     }
 
     checkToken();

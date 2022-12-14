@@ -100,7 +100,6 @@ $gutter: 32px;
 }
 
 .typography {
-    font-weight: bold;
 
     @include responsive(s) {
         font-size: 1.5rem;
@@ -135,4 +134,189 @@ $gutter: 32px;
         }
     }
 
+}
+
+.adminModal {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    .adminModalContainer {
+        width: 50vw;
+        height: 50vh;
+        margin-top: 1.2rem;
+        background-color: #121212;
+
+        @include responsive(s) {
+            width: 80vw;
+            height: 70vh;
+
+        }
+
+    }
+
+    .adminModalForm {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        @include responsive(s) {
+            width: 80vw;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .adminModalTypography {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+            margin-left: 3rem;
+
+            @include responsive(s) {
+                font-size: 1.2rem;
+                margin-right: 3rem;
+
+            }
+        }
+
+    }
+
+    .adminModalInputContainer {
+        width: 90%;
+        height: 30vh;
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+        margin-left: 3rem;
+        gap: 1rem;
+
+        @include responsive(s) {
+            width: 70vw;
+            height: 35vh;
+            flex: none;
+            margin: 0px 0px 0px 0px;
+            gap: 1rem;
+        }
+
+        .adminIdInput {
+            flex: none;
+            width: 10vw;
+
+            @include responsive(s) {
+                width: 20vw;
+                margin-top: 1rem;
+            }
+        }
+    }
+
+    .adminModalButtonContainer {
+        display: flex;
+        flex: none;
+        margin-left: 39rem;
+        gap: 1rem;
+        flex-direction: row;
+        width: 30%;
+
+        @include responsive(s) {
+            margin-top: 3rem;
+            margin-left: 0px;
+            flex-direction: column-reverse;
+            width: 90%;
+        }
+    }
+}
+
+.userModal {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    .userModalContainer {
+        width: 50vw;
+        height: 50vh;
+        margin-top: 1.2rem;
+        background-color: #121212;
+
+        @include responsive(s) {
+            width: 80vw;
+            height: 70vh;
+
+        }
+
+    }
+
+    .userModalForm {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        
+        .userModalTypography {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+            margin-left: 3rem;
+
+            @include responsive(s) {
+                font-size: 1.2rem;
+                margin-right: 3rem;
+
+            }
+        }
+
+        @include responsive(s) {
+            width: 80vw;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .userModalInputContainer {
+        width: 90%;
+        height: 30vh;
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+        margin-left: 3rem;
+        gap: 3rem;
+
+        @include responsive(s) {
+            width: 70vw;
+            height: 35vh;
+            flex: none;
+            margin: 0px 0px 0px 0px;
+            gap: 1rem;
+        }
+
+        .userIdInput {
+            flex: none;
+            width: 10vw;
+
+            @include responsive(s) {
+                width: 20vw;
+                margin-top: 1rem;
+            }
+        }
+    }
+
+
+    .userModalButtonContainer {
+        display: flex;
+        flex: none;
+        margin-left: 39rem;
+        gap: 1rem;
+        flex-direction: row;
+        width: 30%;
+
+        @include responsive(s) {
+            margin-left: 0px;
+            flex-direction: column-reverse;
+            width: 90%;
+        }
+    }
 }

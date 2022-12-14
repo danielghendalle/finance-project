@@ -10,8 +10,8 @@ export const api = axios.create({
 });
 
 export async function signIn(username: any, password: any) {
-  try {
-    const response = await api.post(
+  const response = await api
+    .post(
       "/oauth/token",
 
       qs.stringify({ grant_type: "password", username, password }),
@@ -25,25 +25,28 @@ export async function signIn(username: any, password: any) {
           password: "admin",
         },
       }
-    );
+    )
+    .then((response) => {
+      const { access_token, refresh_token } = response.data;
 
-    const { access_token, refresh_token } = response.data;
-
-    setCookie(undefined, "authorization_token", access_token, {
-      maxAge: 60 * 60 * 24 * 30,
-      path: "/",
+      setCookie(undefined, "authorization_token", access_token, {
+        maxAge: 60 * 60 * 24 * 30,
+        path: "/",
+      });
+      setCookie(undefined, "refresh_token", refresh_token, {
+        maxAge: 60 * 60 * 24 * 30,
+        path: "/",
+      });
+    })
+    .catch((err) => {
+      destroyCookie(undefined, "authorization_token");
+      destroyCookie(undefined, "refresh_token");
+      if (err.response.data.message === "Bad credentials") {
+        return alert(
+          "Seu E-mail ou Senha estão incorretos, por favor verifique. "
+        );
+      }
     });
-    setCookie(undefined, "refresh_token", refresh_token, {
-      maxAge: 60 * 60 * 24 * 30,
-      path: "/",
-    });
-
-    return;
-  } catch (err) {
-    destroyCookie(undefined, "authorization_token");
-    destroyCookie(undefined, "refresh_token");
-    console.log(err);
-  }
 }
 
 export async function userRegister(username, password) {

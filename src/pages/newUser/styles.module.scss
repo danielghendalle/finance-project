@@ -144,5 +144,10 @@ $gutter: 32px;
             flex: 1;
         }
 
+        @include responsive(tablet) {
+            width: 100%;
+            flex: 1;
+        }
+
     }
 }

@@ -95,7 +95,6 @@ $gutter: 32px;
 
     @include responsive(s) {
         background-image: none;
-        background-color: #2F3135;
         flex-direction: column;
         align-items: center;
         justify-content: center;

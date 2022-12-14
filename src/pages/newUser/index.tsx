@@ -1,7 +1,7 @@
 import PersonAddOutlinedIcon from "@mui/icons-material/PersonAddOutlined";
 import WestIcon from "@mui/icons-material/West";
 import { Box, Typography } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { CustomButton } from "../../components/CustomButton";
@@ -12,6 +12,11 @@ import { userRegister } from "../../services/api";
 import styles from "./styles.module.scss";
 
 const NewUser = () => {
+
+  useEffect(() => {
+    document.title = 'Finances | Novo Usuário';
+  }, []);
+
   const {
     register,
     formState: { errors },

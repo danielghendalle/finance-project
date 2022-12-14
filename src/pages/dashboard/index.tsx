@@ -23,7 +23,14 @@ import CustomSwitch from "./../../components/CustomSwitch";
 import styles from "./styles.module.scss";
 
 const Dashboard = () => {
+  
+    useEffect(() => {
+    document.title = 'Finances | Página inicial';
+  }, []);
+
+  
   const [loading, setLoading] = useState(false);
+
 
   const {
     register,

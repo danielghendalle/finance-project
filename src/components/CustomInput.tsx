@@ -5,6 +5,7 @@ import { grey, purple } from "@mui/material/colors";
 export const CustomInput = styled(TextField)({
   display: "flex",
   flex: "1",
+  cursor:"pointer",
   "& label.Mui-focused": {
     color: purple[500],
     transition: ".3s ease",
@@ -23,5 +24,6 @@ export const CustomInput = styled(TextField)({
       borderColor: grey[200],
       transition: ".3s ease",
     },
+    
   },
 });
