@@ -1,46 +1,29 @@
-# Getting Started with Create React App
+Projeto Finance
+Visão Geral
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O Projeto Finance é uma aplicação financeira robusta e eficiente que visa oferecer uma experiência completa de gerenciamento financeiro aos usuários. Integrado ao projeto Skeleton API, este sistema proporciona funcionalidades avançadas de cadastro e manipulação de dados financeiros, enquanto mantém altos padrões de segurança e usabilidade.
+Principais Recursos
 
-## Available Scripts
+    Autenticação OAuth2: Utilizando um sistema seguro de autenticação OAuth2, o Projeto Finance garante a proteção das informações do usuário, proporcionando uma experiência confiável e livre de preocupações.
 
-In the project directory, you can run:
+    Integração com Skeleton API: A integração perfeita com o Skeleton API permite o cadastro eficiente de dados financeiros, garantindo uma comunicação consistente entre front-end e back-end.
 
-### `npm start`
+    Requisições Axios: A comunicação entre o front-end e o back-end é realizada de forma eficaz e assíncrona, garantindo uma experiência fluida ao usuário.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+    Políticas de Usuário: O Projeto Finance implementa rigorosas regras de política de usuário para controlar o acesso e garantir a segurança das informações sensíveis.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+    UI/UX Planejado: Desenvolvido com um planejamento prévio em UI/UX, o projeto utiliza a biblioteca Material-UI (MUI) para oferecer uma interface intuitiva, moderna e agradável ao usuário.
 
-### `npm test`
+Como Contribuir
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Se você deseja contribuir para o desenvolvimento do Projeto Finance, siga os passos abaixo:
 
-### `npm run build`
+    Faça um fork do repositório.
+    Clone o fork para o seu ambiente local.
+    Instale as dependências utilizando as instruções fornecidas no README.
+    Faça as modificações desejadas e teste-as localmente.
+    Envie um pull request para análise.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Agradecemos antecipadamente por suas contribuições para tornar o Projeto Finance ainda mais robusto e eficiente.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Divirta-se gerenciando suas finanças de maneira inteligente com o Projeto Finance!
