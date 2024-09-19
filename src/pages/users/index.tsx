@@ -185,7 +185,7 @@ const User = () => {
   }
   return (
     <Box>
-      <Header />
+      <Header title="Usuários" />
       <Box className={styles.container}>
         <Box className={styles.title}>
           <Typography

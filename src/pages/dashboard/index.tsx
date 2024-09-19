@@ -1,7 +1,11 @@
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import CalculateIcon from "@mui/icons-material/Calculate";
 import DeleteIcon from "@mui/icons-material/Delete";
-import PaidIcon from "@mui/icons-material/Paid";
+//@ts-ignore
+import {ReactComponent as IconePagamento} from '../../assets/icons/iconePagamento.svg';
+//@ts-ignore
+import {ReactComponent as IconeSaida} from '../../assets/icons/iconeSaida.svg';
+
 import {
   Box,
   FormControlLabel,
@@ -150,16 +154,13 @@ const Dashboard = () => {
 
   return (
     <Box>
-      <Header />
+      <Header title="Dashboard" />
       <Box className={styles.container}>
         <Box className={styles.card}>
           <Card
             title={"Entradas"}
             icon={
-              <PaidIcon
-                color="success"
-                fontSize="large"
-                className={styles.icon}
+              <IconePagamento
               />
             }
             value={entries.toString()}
@@ -168,8 +169,7 @@ const Dashboard = () => {
           <Card
             title={"Saídas"}
             icon={
-              <PaidIcon
-                color="error"
+              <IconeSaida
                 fontSize="large"
                 className={styles.icon}
               />

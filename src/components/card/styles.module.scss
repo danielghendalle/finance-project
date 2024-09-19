@@ -78,13 +78,13 @@ $gutter: 32px;
 
 
 .card {
-    border: 1px solid #4c4c4c;
     margin-top: 1rem;
     margin-bottom: 1rem;
-
+    background-color: #fafbff;
     width: 20%;
     height: 20vh;
-    border-radius: 6px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
     @include responsive(tablet) {
         width: 25.5vw;
@@ -102,15 +102,18 @@ $gutter: 32px;
 .header {
     width: 100%;
     height: 8vh;
-    border-radius: 6px;
-    border: 1px solid #4c4c4c;
+
     display: flex;
+    background-color: #778DA9;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
 
     .text {
         font-size: 1.3rem;
         margin-left: 0.5rem;
+        color: #E0E1DD;
 
         @include responsive(tablet) {
             font-size: 1rem;
@@ -127,6 +130,8 @@ $gutter: 32px;
         margin-right: 0.5rem;
         align-items: center;
         flex: 1;
+        color: #E0E1DD;
+        ;
 
     }
 
@@ -137,6 +142,7 @@ $gutter: 32px;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
     display: flex;
+    color: #0D1B2A;
     margin-top: 2rem;
     margin-left: 0.5rem;
     flex-direction: column;

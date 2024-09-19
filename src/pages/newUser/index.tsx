@@ -37,7 +37,7 @@ const NewUser = () => {
 
   return (
     <Box>
-      <Header />
+      <Header title="Novos Usuários" />
       <Box className={styles.container}>
         <Box className={styles.title}>
           <Typography

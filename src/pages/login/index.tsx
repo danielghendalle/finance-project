@@ -61,7 +61,7 @@ const Login = () => {
             color={grey[100]}
             sx={{ fontWeight: "bold" }}
           >
-            Acessar
+            Fazer login
           </Typography>
         </Box>
         <Stack spacing={2}>

@@ -1,25 +1,34 @@
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import MenuIcon from "@mui/icons-material/Menu";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutline";
 import {
   Box,
   Button,
   Drawer,
   IconButton,
-  Link,
-  Typography
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Typography,
 } from "@mui/material";
-import { grey } from "@mui/material/colors";
-import { Stack } from "@mui/system";
+// @ts-ignore
 import { destroyCookie } from "nookies";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 //@ts-ignore
+import { ReactComponent as MenuBtn } from "../../assets/icons/hamburguer.svg";
+//@ts-ignore
+import { ReactComponent as LogoutBtn } from "../../assets/icons/logout.svg";
 import styles from "./styles.module.scss";
 
-const Header = () => {
+interface HeaderProps {
+  title: string;
+}
+
+const Header: React.FC<HeaderProps> = ({ title }) => {
   const navigate = useNavigate();
 
   function Logout() {
@@ -31,48 +40,67 @@ const Header = () => {
 
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   return (
-    <Box className={styles.container}>
-      <IconButton
-        size="large"
-        edge="start"
-        color="inherit"
-        aria-label="logo"
-        className={styles.menuButton}
-        sx={{
-          marginLeft: "0.5rem",
-          marginRight: "0.5rem",
-        }}
-        onClick={() => setIsDrawerOpen(true)}
-      >
-        <MenuIcon className={styles.menuIcon} />
-      </IconButton>
-      <Drawer
-        anchor="left"
-        open={isDrawerOpen}
-        onClose={() => setIsDrawerOpen(false)}
-        PaperProps={{
-          sx:{
-            background:"rgba(13, 13, 13, 1)"
-          }
-        }}
-      >
-        <Box className={styles.header}>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="logo"
-            className={styles.closeButton}
-            onClick={() => setIsDrawerOpen(false)}
-          >
-            <ChevronLeftIcon />
-          </IconButton>
-        </Box>
-        <Box className={styles.content}>
-          <Typography className={styles.title} marginTop={6} marginLeft={2}>
-            PÁGINAS
-          </Typography>
+    <Box className={styles.header}>
+      <div className={styles.container}>
+        <div className={styles.menuButton}>
+          <MenuBtn
+            className={styles.menuIcon}
+            onClick={() => setIsDrawerOpen(true)}
+          />
+        </div>
+        <Drawer
+          anchor="left"
+          open={isDrawerOpen}
+          onClose={() => setIsDrawerOpen(false)}
+          PaperProps={{
+            sx: {
+              background: "#778DA9",
+              width: "12vw",
+            },
+          }}
+        >
+          <Box className={styles.drawer}>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="logo"
+              className={styles.closeButton}
+              onClick={() => setIsDrawerOpen(false)}
+            >
+              <ChevronLeftIcon sx={{ color: "#E0E1DD" }} />
+            </IconButton>
+          </Box>
+          <List>
+            {["Dashboard", "Usuários"].map((text, index) => (
+              <ListItem key={text} disablePadding>
+                <ListItemButton
+                  onClick={() => {
+                    text === "Dashboard"
+                      ? navigate("/dashboard")
+                      : navigate("/users");
+                  }}
+                >
+                  <ListItemIcon sx={{ color: "#E0E1DD" }}>
+                    {index % 2 === 0 ? (
+                      <HomeOutlinedIcon />
+                    ) : (
+                      <PersonOutlinedIcon />
+                    )}
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={text}
+                    sx={{
+                      color: "#E0E1DD",
+                    }}
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+          {/* <Box className={styles.content}>
           <Stack spacing={2}>
+            <div className={styles.link}>
             <Link
               color={grey[100]}
               marginTop={2}
@@ -88,6 +116,8 @@ const Header = () => {
                 <Typography>Início</Typography>
               </Stack>
             </Link>
+            </div>
+            <div></div>
             <Link
               color={grey[100]}
               underline="none"
@@ -110,15 +140,27 @@ const Header = () => {
               Sair
             </Button>
           </Stack>
-        </Box>
-      </Drawer>
-      <Typography
-        variant="h4"
-        className={styles.logo}
-        sx={{ fontWeight: "bold", fontFamily: "Roboto, sans-serif" }}
-      >
-        Finances
-      </Typography>
+        </Box> */}
+        </Drawer>
+        <Typography
+          variant="h4"
+          className={styles.logo}
+          sx={{
+            fontWeight: "bold",
+            fontFamily: "Roboto, sans-serif",
+            color: "#E0E1DD",
+          }}
+        >
+          {title}
+        </Typography>
+      </div>
+      <div className={styles.logoutBtnContainer}>
+        <LogoutBtn
+          onClick={Logout}
+          className={styles.logoutBtn}
+          color="error"
+        />
+      </div>
     </Box>
   );
 };

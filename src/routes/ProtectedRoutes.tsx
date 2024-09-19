@@ -1,7 +1,8 @@
 import { destroyCookie, parseCookies } from "nookies";
 import { useEffect, useState } from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import { api } from "./api";
+import { api } from "../services/api";
+
 const useAuth = () => {
   const user = { loggedIn: false };
   return user && user.loggedIn;

@@ -73,19 +73,26 @@ $gutter: 32px;
     }
 }
 
+.header {
+ display: flex;
+ justify-content: space-between;
+ background-color: #778DA9;
+ width: 100%;
+ height: 8vh;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
 .container {
-    background-color: #0D0D0D;
-    width: 100%;
-    height: 10vh;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    border-top: none;
+    align-items: center;
+
 
     .logo {
         @include responsive(s) {
             font-size: 1.5rem;
-            margin-left: 5rem;
         }
     }
 
@@ -93,8 +100,17 @@ $gutter: 32px;
 }
 
 .menuButton {
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    cursor: pointer;
+    transition: .3s ease;
+    width: 3vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        background-color: #0707071a;
+    }
 
     .menuIcon {
         @include responsive(s) {
@@ -103,14 +119,14 @@ $gutter: 32px;
     }
 }
 
-.header {
+.drawer {
     height: 8.6vh;
-    border-bottom: 1px solid grey;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-}
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
+}
 
 
 .content {
@@ -127,17 +143,24 @@ $gutter: 32px;
     font-size: 0.9rem;
 }
 
-.link {
-    width: 100%;
+.logoutBtnContainer {
+ display: flex;
+ align-items: center;
+ width: auto;
+}
+
+.logoutBtn {
     cursor: pointer;
     transition: .3s ease;
+    width: 100%;
+    height: 100%;
+    padding: 1.2rem;
 
     &:hover {
-        color: #e200e2;
+        background-color: #0707071a;
     }
-
+ 
 }
 
-.logoutButton {
-    width: 36%;
-}
+
+
