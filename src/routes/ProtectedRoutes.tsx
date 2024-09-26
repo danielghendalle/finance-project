@@ -27,7 +27,7 @@ const ProtectedRoutes = () => {
     }
 
     checkToken();
-  }, []);
+  }, [cookie]);
 
   return loading && cookie.authorization_token ? (
     <Outlet />

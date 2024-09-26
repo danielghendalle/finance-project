@@ -1,12 +1,8 @@
-import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Dashboard from "./pages/dashboard/index";
-import Login from "./pages/login";
-import LoginRegistration from "./pages/loginRegistration/index";
-// import ProtectedRoutes from "./services/ProtectedRoutes";
+// src/App.jsx
+import { createTheme, CssBaseline } from "@mui/material";
+import { BrowserRouter } from "react-router-dom";
 import styles from "./App.module.scss";
-import NewUser from "./pages/newUser";
-import User from "./pages/users/index";
+import AppRoutes from "./routes/Routes";
 
 function App() {
   const darkTheme = createTheme({
@@ -14,24 +10,15 @@ function App() {
       mode: "light",
     },
   });
+  document.title = "Finances ";
 
   return (
-    <>
+    <div className={styles.App}>
       <CssBaseline />
-      <div className={styles.App}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/loginRegistration" element={<LoginRegistration />} />
-            {/* <Route element={<ProtectedRoutes />}> */}
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/users" element={<User />} />
-              <Route path="/newUsers" element={<NewUser />} />
-            {/* </Route> */}
-          </Routes>
-        </BrowserRouter>
-      </div>
- </>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+    </div>
   );
 }
 

@@ -42,12 +42,12 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
   return (
     <Box className={styles.header}>
       <div className={styles.container}>
-        <div className={styles.menuButton}>
-          <MenuBtn
-            className={styles.menuIcon}
-            onClick={() => setIsDrawerOpen(true)}
-          />
-        </div>
+        <Box
+          className={styles.menuButton}
+          onClick={() => setIsDrawerOpen(true)}
+        >
+          <MenuBtn className={styles.menuIcon} />
+        </Box>
         <Drawer
           anchor="left"
           open={isDrawerOpen}
@@ -98,49 +98,6 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
               </ListItem>
             ))}
           </List>
-          {/* <Box className={styles.content}>
-          <Stack spacing={2}>
-            <div className={styles.link}>
-            <Link
-              color={grey[100]}
-              marginTop={2}
-              underline="none"
-              className={styles.link}
-              marginRight={16}
-              onClick={() => {
-                navigate("/dashboard");
-              }}
-            >
-              <Stack spacing={1} direction="row">
-                <HomeOutlinedIcon className={styles.icon} />
-                <Typography>Início</Typography>
-              </Stack>
-            </Link>
-            </div>
-            <div></div>
-            <Link
-              color={grey[100]}
-              underline="none"
-              className={styles.link}
-              onClick={() => {
-                navigate("/users");
-              }}
-            >
-              <Stack spacing={1} direction="row">
-                <PersonOutlinedIcon />
-                <Typography>Usuários</Typography>
-              </Stack>
-            </Link>
-            <Button
-              className={styles.logoutButton}
-              onClick={Logout}
-              color="error"
-              startIcon={<ExitToAppIcon />}
-            >
-              Sair
-            </Button>
-          </Stack>
-        </Box> */}
         </Drawer>
         <Typography
           variant="h4"
